@@ -47,6 +47,40 @@ public class PictureTester
 	  snowman.explore();
   }
   
+  public static void testMirrorGull()
+  {
+	  //seagull at ~230, ~235
+	  Picture seagull = new Picture("seagull.jpg");
+	  seagull.explore();
+	  seagull.copyGull();
+	  seagull.explore();
+  }
+  
+  public static void testRandomize()
+  {
+	  Picture moon = new Picture("moon-surface.jpg");
+	  moon.explore();
+	  moon.copyGull();
+	  moon.edgeDetection2(15);
+	  moon.fullRandomRed();
+	  moon.explore();
+  }
+  
+  public static void testMirrorArms()
+  {
+	  Picture snowman = new Picture("snowman.jpg");
+	  snowman.explore();
+  }
+  
+  public static void testMirrorDiagonal()
+  {
+	  Picture seagull = new Picture("seagull.jpg");
+	  //Picture koala = new Picture("koala.jpg");
+	  seagull.explore();
+	  seagull.mirrorDiagonal();
+	  seagull.explore();
+  }
+  
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
@@ -68,6 +102,8 @@ public class PictureTester
   public static void testEdgeDetection()
   {
     Picture swan = new Picture("swan.jpg");
+    swan.explore();
+    swan.edgeDetection2(15);
     swan.edgeDetection(10);
     swan.explore();
   }
@@ -79,6 +115,7 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
+	testRandomize();
     //testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
@@ -87,8 +124,8 @@ public class PictureTester
     //testGrayscale();
     //testFixUnderwater();
     //testMirrorVertical();
-	 // testMirrorVerticalRightToLeft();
-	  testMirrorHorizontalBottomToTop();
+	//testMirrorVerticalRightToLeft();
+	//testMirrorHorizontalBottomToTop();
     //testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();
