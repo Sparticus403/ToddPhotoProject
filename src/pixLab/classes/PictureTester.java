@@ -108,6 +108,20 @@ public class PictureTester
     swan.explore();
   }
   
+  public static void testSeganography()
+  {
+	  Picture message = new Picture("msg.jpg");
+	  message.seganography();
+	  message.explore();
+  }
+  
+  public static void testValentine()
+  {
+	  Picture heart = new Picture("netflixh.jpg");
+	  heart.valentinePic();
+	  heart.explore();
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -115,7 +129,9 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-	testRandomize();
+	//testRandomize();
+	  testSeganography();
+	//testValentine();
     //testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();

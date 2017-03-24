@@ -99,6 +99,13 @@ public class Picture extends SimplePicture
     }
   }
   
+  public void valentinePic()
+  {
+	  addMessage("This is how I spend my valentines day", 100,100);
+	  addMessage("Netflix and memes, but mostly both", 100, 300);
+	  write("valmeme.jpg");
+  }
+  
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture
     * from left to right */
@@ -117,6 +124,20 @@ public class Picture extends SimplePicture
         rightPixel.setColor(leftPixel.getColor());
       }
     } 
+  }
+  
+  public void seganography()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+//	  Picture message = new Picture("msg.jpg");
+	  Picture hiding = new Picture("moon-surface.jpg");
+	  for(Pixel[] rowArray : pixels)
+	  {
+		  for(Pixel pixelObj : rowArray)
+		  {
+			  //int blue = (int)();
+		  }
+	  }
   }
   
   /** Mirror just part of a picture of a temple */
@@ -275,6 +296,21 @@ public class Picture extends SimplePicture
 			  int red = (int)(Math.random() * 256);
 			  			  
 			  currentPixel.setColor(new Color(red, currentPixel.getGreen(), blue));
+		  }
+	  }
+  }
+  
+  public void glich()
+  {
+	  Pixel [][] currentPicture = this.getPixels2D();
+	  for(Pixel [] row : currentPicture)
+	  {
+		  for(Pixel currentPixel : row)
+		  {
+			  int blue = (int)(Math.random() * 256);
+			  int red = (int)(Math.random() * 256);
+			  
+			  currentPixel.setColor(new Color(red,currentPixel.getGreen(), blue));
 		  }
 	  }
   }
