@@ -126,18 +126,65 @@ public class Picture extends SimplePicture
     } 
   }
   
-  public void seganography()
+  public void encode(Picture hiddenPicture)
   {
-	  Pixel[][] pixels = this.getPixels2D();
-//	  Picture message = new Picture("msg.jpg");
-	  Picture hiding = new Picture("moon-surface.jpg");
-	  for(Pixel[] rowArray : pixels)
+	  Pixel[][] currentPicture = this.getPixels2D();
+	  Pixel[][] hiddenData = hiddenPicture.getPixels2D();
+	  
+	  Pixel hiddenPixel = null;
+	  Pixel currentPixel = null;
+	  
+	  for(int row = 0; row < currentPicture.length; row++)
 	  {
-		  for(Pixel pixelObj : rowArray)
+		  for(int col = 0; col < currentPicture[0].length; col++)
 		  {
-			  //int blue = (int)();
+			  hiddenPixel = hiddenData[row][col];
+			  currentPixel = currentPicture[row][col];
+			  
+			  if(hiddenPixel.getRed() == 255 && hiddenPixel.getGreen() == 255 && hiddenPixel.getBlue() == 255)
+			  {
+				  int currentRed = currentPixel.getRed();
+				  if(currentRed % 2 == 0)
+				  {
+					  currentPixel.setRed(currentRed + 1);
+				  }
+			  }
+			  else
+			  {
+				  int currentRed = currentPixel.getRed();
+				  if(currentRed % 2 != 0)
+				  {
+					  currentPixel.setRed(currentRed - 1);
+				  }  
+			  }
 		  }
 	  }
+	  this.write("encrypted.png");
+	  this.explore();
+      //Picture message = new Picture("msg.jpg");
+	  //Picture hiding = new Picture("moon-surface.jpg");
+	  
+  }
+  
+  public void decode()
+  {
+	  Pixel [][] decoded = this.getPixels2D();
+	  Pixel currentPixel = null;
+	  
+	  for(int row = 0; row < decoded.length; row++)
+	  {
+		  for(int col = 0; col < decoded[0].length; col++)
+		  {
+			  //DFFF00
+			  currentPixel = decoded[row][col];
+			  int currentRed = currentPixel.getRed();
+			  if(currentRed % 2 == 0)
+			  {
+				  currentPixel.setColor(new Color(127, 255, 00));
+			  }
+		  }
+	  }
+	  this.explore();
   }
   
   /** Mirror just part of a picture of a temple */

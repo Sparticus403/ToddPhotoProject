@@ -110,9 +110,13 @@ public class PictureTester
   
   public static void testSeganography()
   {
-	  Picture message = new Picture("msg.jpg");
-	  message.seganography();
-	  message.explore();
+	  Picture source = new Picture("moon-surface.jpg");
+	  source.explore();
+	  Picture hidden = new Picture("Hiding.jpg");
+	  source.encode(hidden);
+	  source.explore();
+	  hidden.explore();
+	  source.decode();
   }
   
   public static void testValentine()
